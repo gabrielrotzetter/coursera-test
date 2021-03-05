@@ -1,0 +1,98 @@
+/* module 3 styles */
+
+body {
+  font-size: 16px;
+  color: #000;
+  background-color: #fff;
+  font-family: 'Oxygen', sans-serif;
+}
+
+/** HEADER **/
+#header-nav {
+  background-color: grey;
+  border-radius: 0;
+  border: 1px solid black;
+}
+
+.navbar-brand h1 { /*  name */
+  font-family: 'Arial';
+  color: #000;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  line-height: .75;
+}
+
+
+#nav-list {
+  margin-top: 0px;
+  margin-bottom: 0;
+  border: 1px solid black;
+}
+#nav-list a {
+  color: black;
+  text-align: center;
+  background-color: #F6CEF5;
+  border: 1px solid black;
+}
+#nav-list a:hover {
+  background: #E7E7E7;
+}
+#nav-list a span {
+  font-size: 1.8em;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid black;
+}
+
+
+h2 {
+	text-align: center;
+}
+
+/* SINGLE CATEGORY PAGE */
+.menu-item-tile {
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+.menu-item-tile hr {
+  width: 80%;
+}
+
+
+
+.menu-item-description {
+  background-color: #F3E2A9;
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+}
+h3.menu-item-title {
+  margin: 0 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.menu-item-details {
+  font-size: .9em;
+  margin: 10px 10px;
+}
+/* END SINGLE CATEGORY PAGE */
+
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  /* Header */
+  
+
+
+  #xs_marge {
+    margin: 0 100px;
+  }
+  /* End Header */
+
+
