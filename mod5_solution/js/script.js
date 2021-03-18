@@ -14,14 +14,22 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+//var homeHtmlUrl = "https://gabrielrotzetter.github.io/coursera-test/mod5_solution/snippets/home-snippet.html"; // GR Help
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
+//var categoriesTitleHtml = "https://gabrielrotzetter.github.io/coursera-test/mod5_solution/snippets/categories-title-snippet.html"; // GR Help
+
 var categoryHtml = "snippets/category-snippet.html";
+//var categoryHtml = "https://gabrielrotzetter.github.io/coursera-test/mod5_solution/snippets/category-snippet.html"; // GR Help
 var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
+
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+
+//var menuItemsTitleHtml = "https://gabrielrotzetter.github.io/coursera-test/mod5_solution/snippets/menu-items-title.html"; // GR Help
+//var menuItemHtml = "https://gabrielrotzetter.github.io/coursera-test/mod5_solution/snippets/menu-item.html"; // GR Help
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -87,55 +95,45 @@ document.addEventListener("DOMContentLoaded", function (event) {
 //  true); // Explicitly setting the flag to get JSON from server processed into an object literal
 // });
 
-// On first load, show home view
+
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
-  homeHtmlUrl,
-  function (responseText) {
-    document.querySelector("#main-content")
-      .innerHTML = responseText;
-  },
-  false);
+  allCategoriesUrl,
+  buildAndShowHomeHTML,
+   // ***** <---- TODO: STEP 1: Substitute [...] ******
+  true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
-
-// showLoading("#main-content");
-// console.log("hallo");
-// $ajaxUtils.sendGetRequest(
-//   allCategoriesUrl,
-//   buildAndShowHomeHTML,
-//    // ***** <---- TODO: STEP 1: Substitute [...] ******
-//   true); // Explicitly setting the flag to get JSON from server processed into an object literal
-// });
 // *** finish **
 
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-  console.log("hallo2" + categories); // GR
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
 
-      //von mit
+      //GR Script:
       //-----------------------
-       console.log("ok");
-          //var categoriesViewHtml =
-           // buildCategoriesViewHtml(categories,
-            //                        categoriesTitleHtml,
-             //                       categoryHtml);
-          //insertHtml("#main-content", categoriesViewHtml);
 
       // Retrieve single category snippet
 
       // step 2
-      var chosenCategoryShortName = chooseRandomCategory(categories);
+      var chosenCategory = chooseRandomCategory(categories);
+      var chosenCategoryShortName = "'" + chosenCategory.short_name + "'";
+
+    
 
       // step 3
-      var html = homeHtmlUrl;
+      var html = homeHtml;
       html =
       insertProperty(html, "randomCategoryShortName", chosenCategoryShortName);
+   
+      // step 4
+      insertHtml("#main-content", html);
+
+   //   $dc.loadMenuItems(chosenCategoryShortName);
       // --------------------------
       // nicht mehr ich
 
